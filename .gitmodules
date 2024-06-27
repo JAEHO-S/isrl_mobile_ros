@@ -6,7 +6,7 @@
 	url = https://github.com/honorde/RestrictAreaPlugin.git
 [submodule "zed-ros-wrapper"]
 	path = zed-ros-wrapper
-	url = https://github.com/stereolabs/zed-ros-interfaces.git
+	url = https://github.com/stereolabs/zed-ros-wrapper.git
 [submodule "serial-example"]
 	path = serial-example
 	url = https://github.com/garyservin/serial-example.git
