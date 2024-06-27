@@ -1,0 +1,18 @@
+<launch>
+    <arg name="model" />
+
+    <param name="robot_description" textfile="$(find isrl_urdf)/urdf/isrl_robot.urdf" />
+
+    <!-- Setting gui parameter to true for display joint slider -->
+    <!-- <param name="use_gui" value="true"/> -->
+    <!-- Starting Joint state publisher node which will publish the joint values -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <!-- Starting robot state publish which will publish tf -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <!-- Launch visualization in rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find isrl_urdf)/rviz/urdf.rviz" required="True" />
+
+    <!-- <node pkg="tf" type="static_transform_publisher" name="laser" args="0.0 0.0 0.0 0 0 0 1 base_link laser 100" />
+    <node pkg="tf" type="static_transform_publisher" name="base_footprint" args="0.0 0.0 -0.510 0 0 0 1 base_link base_footprint 100" />
+    <node pkg="tf" type="static_transform_publisher" name="camera_link" args="0.275 0.0 -0.03 0 0 0 1 base_link camera_link 100" /> -->
+</launch>

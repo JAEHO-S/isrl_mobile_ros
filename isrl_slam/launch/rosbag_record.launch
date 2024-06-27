@@ -1,0 +1,14 @@
+<launch>
+  <!-- RPLIDAR launch file -->
+  <include file="$(find rplidar_ros)/launch/rplidar_a3.launch"/>
+  
+  <!-- zed wrapper _no_tf -->
+  <include file="$(find zed_wrapper)/launch/zed_no_tf.launch"/>
+
+  <!-- isrl robot model -->
+  <include file="$(find isrl_urdf)/launch/isrl_bringup.launch"/>
+  
+  <!-- odometry -->
+  <node pkg="isrl_odom2" name="isrl_odom2_node" type="isrl_odom2_node"/>
+
+</launch>

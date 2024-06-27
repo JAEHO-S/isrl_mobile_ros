@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<robot name="mira">
+
+    <!-- base -->
+    <link name="base_footprint">
+        <visual>
+            <origin rpy="0.0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <sphere radius="0.00001"/>
+            </geometry>
+        </visual>
+	</link>
+
+    <link name="base_link">
+        <visual>
+            <origin rpy="0.0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://isrl_urdf/meshes/body.dae"/>
+            </geometry>
+        </visual>
+	</link>
+
+    <!-- base link -->
+
+    <joint name="base_foot_link" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <origin xyz="0.0 0.0 0.255" rpy="0 0 0"/>
+        <axis xyz="0 0 0"/>
+    </joint>
+
+
+    <!-- wheels -->
+    <link name="RF_Wheel">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://isrl_urdf/meshes/wheel.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="RB_Wheel">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://isrl_urdf/meshes/wheel.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="LF_Wheel">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://isrl_urdf/meshes/wheel.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="LB_Wheel">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://isrl_urdf/meshes/wheel.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- wheels joints -->
+    <joint name="RF_Wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="RF_Wheel"/>
+        <origin xyz="0.2545 -0.190 -0.140" rpy="0 0 3.141592"/>
+        <limit effort="0.1" velocity="15.0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="RB_Wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="RB_Wheel"/>
+        <origin xyz="-0.2545 -0.190 -0.140" rpy="0 0 0"/>
+        <limit effort="0.1" velocity="15.0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="LF_Wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="LF_Wheel"/>
+        <origin xyz="0.2545 0.190 -0.140" rpy="0 0 3.141592"/>
+        <limit effort="0.1" velocity="15.0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="LB_Wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="LB_Wheel"/>
+        <origin xyz="-0.2545 0.190 -0.140" rpy="0 0 0"/>
+        <limit effort="0.1" velocity="15.0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <!-- sensors -->
+    <link name="laser">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="camera_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- sensors joints -->
+
+    <joint name="laser_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="laser"/>
+        <origin xyz="0 0 0.350" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+    <joint name="camera_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="camera_link"/>
+        <origin xyz="0.315 0 0.248" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+</robot>

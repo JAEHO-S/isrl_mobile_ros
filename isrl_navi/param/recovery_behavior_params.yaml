@@ -1,0 +1,5 @@
+# Recovery behaviors
+recovery_behavior_enabled: true
+clearing_rotation_allowed: true
+escape_reset_dist: 0.1
+escape_reset_theta: 0.1

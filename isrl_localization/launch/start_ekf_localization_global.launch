@@ -1,0 +1,42 @@
+<launch>
+
+    <!-- Run the EKF Localization node -->
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_global">
+        <remap from="odom_raw" to="odom"/>
+        <rosparam command="load" file="$(find isrl_localization)/config/ekf_localization_global.yaml"/>
+    </node>
+
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_odom">
+        <remap from="odom_raw" to="odom"/>
+        <rosparam command="load" file="$(find isrl_localization)/config/ekf_localization.yaml"/>
+    </node>
+
+    <!-- <include file="$(find e2box_imu)/launch/e2box_imu.launch" /> -->
+
+
+ <!--    <node pkg="nodelet" type="nodelet" name="imu_manager"
+      args="manager" output="screen" />
+
+#### IMU Driver ###########################################################-
+
+    <node pkg="nodelet" type="nodelet" name="ImuFilterNodelet"
+      args="load imu_filter_madgwick/ImuFilterNodelet imu_manager"
+      output="screen">
+
+      <param name="publish_tf" value="false" />
+      <param name="use_mag" value="false" />
+   
+
+    <node pkg="imu_filter_madgwick" type="imu_filter_node" name="imu_filter_madgwick" output="screen">
+      <param name="use_mag" value="false" />
+      <param name="use_magnetic_field_msg" value="false" />
+      <param name="publish_tf" value="false" />
+    </node>
+-->   
+
+
+      <node pkg="isrl_localization" type="init_pose.py" name="init_pose" output="screen">
+      </node>
+
+
+</launch>

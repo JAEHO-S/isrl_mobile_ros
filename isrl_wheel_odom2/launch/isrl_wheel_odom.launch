@@ -1,0 +1,8 @@
+<launch>
+
+  <node name="isrl_wheel_odom" pkg="isrl_wheel_odom2" type="isrl_wheel_odom2_node" output="screen" />
+
+  <!--  <include file="$(find e2box_imu)/launch/e2box_imu.launch" /> -->
+
+  <!-- <node pkg="tf" type="static_transform_publisher" name="base_footprint_raw" args="0.0 0.0 0.0 0 0 0 1 base_footprint base_footprint_raw 100" /> -->
+</launch>

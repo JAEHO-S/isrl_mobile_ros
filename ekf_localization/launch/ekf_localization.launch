@@ -1,0 +1,29 @@
+<launch>
+
+    <node pkg="isrl_wheel_odom2" name="isrl_wheel_odom2_node" type="isrl_wheel_odom2_node" output="log">
+        <remap from="/odom" to="/odom_wheel"/>
+    </node>
+
+    <node pkg="rtabmap_odom" type="icp_odometry" name="icp_odometry" output="log">
+        <param name="scan" type="string" value="/scan"/>
+        <remap from="/odom" to="/odom_icp"/>
+        <param name="publish_tf" type="bool" value="true"/>
+        <param name="frame_id" type="string" value="base_footprint"/>
+    </node>
+
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_node">
+        <param name="world_frame" value="map"/>
+        <param name="odom_frame" value="odom"/>
+        <param name="base_link_frame" value="base_footprint"/>
+        <param name="imu0" value="/imu/data"/>
+        <param name="odom0" value="/odom_wheel"/>
+        <param name="odom1" value="/odom_icp"/>
+        <param name="odom0_config" value="[true, false, false, false, false, false,
+                                          false, true, false, false, false, false,
+                                          false, false, false, false, false, false,
+                                          false, false, false, false, false, false,
+                                          false, false, false, false, false, false,
+                                          false, false, false, false, false, true]"/>
+    </node>
+
+</launch>

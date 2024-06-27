@@ -1,0 +1,39 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="map_file" default="$(find isrl_navi)/maps/map2/map.yaml"/>
+  <arg name="open_rviz" default="false"/>
+  <arg name="move_forward_only" default="false"/>
+
+  <!-- isrl robot model -->
+  <include file="$(find isrl_urdf)/launch/isrl_bringup.launch"/>
+
+  <!-- lidar -->``
+  <include file="$(find rplidar_ros)/launch/rplidar_a3.launch"/>
+
+  <!-- Map server -->
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+  <!-- odometry -->
+  <node pkg="isrl_odom2" name="isrl_odom2_node" type="isrl_odom2_node"/>
+
+  <!-- imu -->
+  <include file="$(find e2box_imu)/launch/e2box_imu.launch" />
+
+  <!-- AMCL -->
+  <include file="$(find isrl_navi)/launch/amcl.launch"/>
+
+  <!-- ekf -->
+  <!-- <include file="$(find isrl_localization)/launch/start_ekf_localization_global.launch"/> -->
+  <!-- <include file="$(find isrl_localization)/launch/start_ekf_localization.launch"/> -->
+
+  <!-- move_base -->
+  <include file="$(find isrl_navi)/launch/move_base.launch">
+    <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+  </include>
+
+  <!-- rviz -->
+  <group if="$(arg open_rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find isrl_navi)/rviz/isrl_navi.rviz"/>
+  </group>
+</launch>

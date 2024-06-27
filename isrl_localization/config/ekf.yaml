@@ -1,0 +1,44 @@
+frequency: 30  # EKF 업데이트 주기
+
+sensor_timeout: 0.1
+
+two_d_mode: true  # 2D 모드 사용
+
+transform_time_offset: 0.0
+
+transform_timeout: 0.0
+
+print_diagnostics: true
+
+debug: false
+
+publish_tf: true
+
+publish_acceleration: false
+
+map_frame: map
+odom_frame: odom
+base_link_frame: base_link
+world_frame: odom
+
+odom0: /odom_raw  # 입력으로 사용할 odom 토픽
+odom0_config: [true, true, false,  # x, y 위치 사용
+               false, false, true,  # yaw 각도 사용
+               false, false, true,  # x 속도 사용
+               false, false, false, # 각속도 미사용
+               false, false, true]  # yaw 각속도 사용
+
+imu0: /imu  # 입력으로 사용할 IMU 토픽
+imu0_config: [false, false, false, # 위치 미사용
+              false, false, false, # 속도 미사용
+              true, true, false,   # roll, pitch 각도 사용
+              false, false, true,  # yaw 각속도 사용
+              false, false, false] # 속도 미사용
+
+use_control: false
+
+stamped_control: false
+
+control_timeout: 0.2
+
+control_config: [true, true, false, false, false, true]

@@ -1,0 +1,32 @@
+digraph G {
+"1st_floor" -> "leg_LB"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"leg_1-1" -> "1st_floor"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"1st_floor" -> "leg_RB"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"1st_floor" -> "leg_RF"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"2nd_floor" -> "leg_1-1"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"1st_floor" -> "leg_LF"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"leg_2-1" -> "2nd_floor"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"2nd_floor" -> "leg_1-2"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"2nd_floor" -> "leg_1-3"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"2nd_floor" -> "leg_1-4"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "leg_2-1"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"odom" -> "base_link"[label=" Broadcaster: /odometry_publisher\nAverage rate: 10.204\nBuffer length: 4.9\nMost recent transform: 1611589698.559\nOldest transform: 1611589693.659\n"];
+"base_link" -> "leg_2-2"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "leg_2-3"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "leg_2-4"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"shaft_LB" -> "wheel_LB"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"leg_LB" -> "shaft_LB"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10.204\nBuffer length: 4.9\nMost recent transform: 1611589698.554\nOldest transform: 1611589693.654\n"];
+"shaft_LF" -> "wheel_LF"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"leg_LF" -> "shaft_LF"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10.204\nBuffer length: 4.9\nMost recent transform: 1611589698.554\nOldest transform: 1611589693.654\n"];
+"shaft_RB" -> "wheel_RB"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"leg_RB" -> "shaft_RB"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10.204\nBuffer length: 4.9\nMost recent transform: 1611589698.554\nOldest transform: 1611589693.654\n"];
+"shaft_RF" -> "wheel_RF"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"leg_RF" -> "shaft_RF"[label=" Broadcaster: /robot_state_publisher\nAverage rate: 10.204\nBuffer length: 4.9\nMost recent transform: 1611589698.554\nOldest transform: 1611589693.654\n"];
+"map" -> "odom"[label=" Broadcaster: /p3dx_slam_gmapping\nAverage rate: 20.202\nBuffer length: 4.95\nMost recent transform: 1611589698.65\nOldest transform: 1611589693.7\n"];
+"base_link" -> "laser"[label=" Broadcaster: /laser\nAverage rate: 10.188\nBuffer length: 4.908\nMost recent transform: 1611589698.716\nOldest transform: 1611589693.809\n"];
+"base_link" -> "base_footprint"[label=" Broadcaster: /base_footprint\nAverage rate: 10.189\nBuffer length: 4.907\nMost recent transform: 1611589698.716\nOldest transform: 1611589693.809\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1611589698.684012"[ shape=plaintext ] ;
+}->"map";
+}

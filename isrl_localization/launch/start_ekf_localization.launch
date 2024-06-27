@@ -1,0 +1,17 @@
+<launch>
+
+    <!-- Run the EKF Localization node -->
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+        <!-- <remap from="odometry/filtered" to="odom"/> -->
+        <rosparam command="load" file="$(find isrl_localization)/config/ekf_localization.yaml"/>
+    </node>
+
+    <!-- <node pkg="isrl_localization" type="init_pose.py" name="init_pose" output="screen">
+    </node> 
+
+    <include file="$(find imu_filter_madgwick)/launch/imu_filter_madgwick.launch" /> -->
+
+
+    <!-- <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find isrl_localization)/rviz/isrl_ekf_local.rviz"/> -->
+
+</launch>

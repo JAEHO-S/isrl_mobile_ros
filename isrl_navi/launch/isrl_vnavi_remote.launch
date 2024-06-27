@@ -1,0 +1,43 @@
+<launch>
+
+  <!-- isrl robot model -->
+  <include file="$(find isrl_urdf)/launch/isrl_bringup.launch"/>
+
+  <!-- lidar -->
+  <include file="$(find rplidar_ros)/launch/rplidar_a3.launch"/>
+
+  <!-- odometry -->
+  <node pkg="isrl_odom2" name="isrl_odom2_node" type="isrl_odom2_node"/>
+
+  <!-- imu -->
+  <include file="$(find e2box_imu)/launch/e2box_imu.launch" />
+
+  <arg name="database_path"
+    default="/home/isrl/rtabmap_data/rtabmap.db"/>
+  <arg name="localization"      default="true"/>
+  <arg name="with_camera"       default="true"/>
+
+  <arg name="wait_for_transform"  default="0.2"/>
+
+  <arg name="device_type_camera"    		default=""/>
+  <arg name="serial_no_camera"    			default=""/>
+  <arg name="camera"              			default="camera"/>
+  <arg name="clip_distance"             default="-2"/>
+  <arg name="rviz"                      default="false"/>
+  <arg name="use_rtabmapviz"            default="false"/>
+
+  <arg     if="$(arg localization)" name="args"  default=""/>
+  <arg unless="$(arg localization)" name="args"  default="--delete_db_on_start"/>
+
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+      <arg name="device_type"             value="$(arg device_type_camera)"/>
+      <arg name="serial_no"               value="$(arg serial_no_camera)"/>
+      <arg name="camera"                  value="$(arg camera)"/>
+      <arg name="clip_distance"           value="$(arg clip_distance)"/>
+      <arg name="align_depth"             value="true"/>
+  </include>
+
+  <!-- Navigation stuff (move_base) -->
+  <include file="$(find isrl_navi)/launch/move_base.launch"/>
+
+</launch>

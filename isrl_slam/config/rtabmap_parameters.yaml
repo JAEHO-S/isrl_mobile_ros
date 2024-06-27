@@ -1,0 +1,10 @@
+rtabmap:
+  Mem/IncrementalMemory: true
+  Mem/InitWMWithAllNodes: true
+  Kp/MaxFeatures: 400
+  RGBD/NeighborLinkRefining: true
+  Reg/Strategy: 1
+  Vis/MinInliers: 20
+  Vis/MaxFeatures: 500
+  Rtabmap/DetectionRate: 0.5  # 데이터 처리 간격을 늘림
+  Rtabmap/TimeThr: 700  # 데이터 타임스탬프 차이를 늘림
