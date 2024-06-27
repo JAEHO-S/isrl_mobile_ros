@@ -37,4 +37,4 @@ You can change the port.
 
 `port: ttyUSB0` or `port: ttyUSB1`
 
-NOW using `ttyLiDAR`, but might be different another pc on robot.
+NOW using `ttyIMU`, but might be different another pc on robot.
