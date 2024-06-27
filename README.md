@@ -38,3 +38,10 @@ You can change the port.
 `port: ttyUSB0` or `port: ttyUSB1`
 
 NOW using `ttyIMU`, but might be different another pc on robot.
+<<<<<<< HEAD
+=======
+
+AND, FOR LIDAR...
+`port: ttyLiDAR`
+
+>>>>>>> Re-added zed-ros-wrapper as a submodule and restored previous changes
