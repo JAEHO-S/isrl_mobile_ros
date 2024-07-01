@@ -13,7 +13,7 @@ This is for isrl 4-differential wheel robot ROS PACKAGE
 
 `cd your_workspace/src`
 
-`git clone --recurese-submodules https://github.com/JAEHO-S/isrl_mobile_ros.git`
+`git clone --recurse-submodules https://github.com/JAEHO-S/isrl_mobile_ros.git`
 
 `cd ..`
 
