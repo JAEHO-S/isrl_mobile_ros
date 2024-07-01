@@ -38,3 +38,5 @@ You can change the port.
 `port: ttyUSB0` or `port: ttyUSB1`
 
 NOW using `ttyIMU`, but might be different another pc on robot.
+
+For LiDAR, using `ttyLiDAR` on jetson orin nx.
