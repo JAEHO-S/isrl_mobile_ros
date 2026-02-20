@@ -40,3 +40,8 @@ You can change the port.
 NOW using `ttyIMU`, but might be different another pc on robot.
 
 For LiDAR, using `ttyLiDAR` on jetson orin nx.
+
+<img width="407" height="406" alt="그림2" src="https://github.com/user-attachments/assets/39ed4398-13c3-4a1e-82a8-6db15f8cc1ee" />
+
+<img width="407" height="407" alt="그림1" src="https://github.com/user-attachments/assets/080e1893-d015-4e39-8dc7-291d52c1eeed" />
+
